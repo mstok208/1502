@@ -1,0 +1,135 @@
+package compgroup;
+
+import compgroup.Applicant; // Applicant
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.io.*;
+
+public class assign0 {
+	
+	final String INPUT_DATA_FOLDER = "";  
+	final String OUTPUT_DATA_FOLDER = "";
+	final int SCORE_THRESHOLD = 67;
+	
+	public static Scanner input = new Scanner (System.in);
+
+//🌼 MAIN	
+	public static void main(String[] args) {
+		
+		//read the file 
+		System.out.print("Please provide the name of the input file (to be located in Input Data Folder) ");
+		String inputFileName = input.nextLine();
+			
+		System.out.print("Please provide the name of the output file (to be places in Ouput Data Folder) ");
+		String outputFileName = input.nextLine();
+		
+		// convert list to object list
+		ArrayList<Applicant> applicantList = readFile(inputFileName + "\t");
+		
+		applicantList = convertListToListOfApplicants(applicantList);
+		
+		System.out.println("\n score language skills: ");
+		scoreLanguageSkills(applicantList);		
+	
+		System.out.println("\n score education: ");
+		scoreEducation(applicantList);
+		
+		
+		System.out.println("\n scoreWork education:" );
+		scoreWorkEducation(applicantList);
+		
+		System.out.println("\n score age:");
+		scoreAge(applicantList);
+	
+		System.out.println("\n score employment");
+		scoreEmployment(applicantList);
+		
+		System.out.println("\n score adapatability");
+		scoreAdaptability(applicantList);
+		
+		PrintQualifiedApplicants(outputFileName, applicantList);
+	}
+	//🌼 PRINT QUALIFIED APPLICANTS
+	public static ArrayList<Applicant> convertListToListOfApplicants (ArrayList<Applicant> applicantList){
+		int counter = 0;
+		ArrayList<Applicant> objectApplicantList = new ArrayList<>();
+		for(String[] line: applicantList) {
+			if (counter > 0) {
+				String firstName = line[0].trim();
+				String lastName = line[1].trim();
+				int age = Integer.parseInt(line[2]);
+				String maritalStatus = line[3].trim();
+				int speak1 = Integer.parseInt(line[4]);
+				int listen1 = Integer.parseInt(line[5]);
+				int read1 = Integer.parseInt(line[6]);
+				int write1 = Integer.parseInt(line[7]);
+				boolean all2 = convertToBoolean(line[8]);
+				String education = line[9].trim();
+				int workExperience = Integer.parseInt(line[10]);
+				boolean arrangedEmployment = convertToBoolean(line[11]);
+				boolean adaptabilitySpouseLanguage = convertToBoolean(line[12]);
+				boolean adaptabilitySpouseEducation = convertToBoolean(line[13]);
+				boolean adaptabilitySpouseWork = convertToBoolean(line[14]);
+				boolean adaptabilityYouEducation = convertToBoolean(line[15]);
+				boolean adaptabilityYouWork = convertToBoolean(line[16]);
+				boolean adaptabilityYouEmployment = convertToBoolean(line[17]);
+				boolean adaptabilityRelatives = convertToBoolean(line[18]);
+				
+				Applicant applicant = new Applicant (firstName,  lastName,  age,  maritalStatus,
+						speak1,  listen1,  read1,  write1,  all2,
+						education,  workExperience,  arrangedEmployment,
+						adaptabilitySpouseLanguage,  adaptabilitySpouseEducation,  adaptabilitySpouseWork,
+						adaptabilityYouEducation,  adaptabilityYouWork,  adaptabilityYouEmployment,
+						adaptabilityRelatives);
+			
+				objectApplicantList.add(applicant);
+
+			}
+		counter++;
+		}
+		return objectApplicantList;
+	}
+//🌼 SC0RE_LANGUAGE_SKILLS
+	public static void scoreLanguageSkills(ArrayList<Applicant> currentApplicant) {
+		int languageScore = 0;
+		
+		if (applicant.speak1 >= 9) {
+			languageScore += 6;
+		}
+	}
+			
+//🌼 CONVERT TO BOOLEAN
+		public static boolean convertToBoolean(String answer) {
+			boolean valueBoolean = false;
+			if (answer == "yes") {
+				valueBoolean = true;
+			}
+			return valueBoolean;
+		}
+
+	
+//🌼 READ_FILE
+	// Source: https://www.w3schools.com/java/java_arraylist.asp
+	// Source: https://www.w3schools.com/java/java_files_read.asp
+	public static ArrayList<Applicant> readFile (String path) {
+		ArrayList<Applicant> applicants = new ArrayList<>();
+		//String name = input.nextLine();
+		
+		File file = new File (path);
+		try(Scanner myReader = new Scanner (file)) {
+			while (myReader.hasNextLine()) {
+			 String data = myReader.nextLine();
+		
+			 }
+		} catch (FileNotFoundException e) {
+			System.out.println ("An error has occured");
+			e.printStackTrace();
+			return null;	
+			}
+		return applicants;
+	}
+}
+
+
+		
