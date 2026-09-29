@@ -90,15 +90,6 @@ public class assign0 {
 		}
 		return objectApplicantList;
 	}
-//🌼 SC0RE_LANGUAGE_SKILLS
-	public static void scoreLanguageSkills(ArrayList<Applicant> currentApplicant) {
-		int languageScore = 0;
-		
-		if (applicant.speak1 >= 9) {
-			languageScore += 6;
-		}
-	}
-			
 //🌼 CONVERT TO BOOLEAN
 		public static boolean convertToBoolean(String answer) {
 			boolean valueBoolean = false;
@@ -107,8 +98,137 @@ public class assign0 {
 			}
 			return valueBoolean;
 		}
-
+//🌼 SC0RE_LANGUAGE_SKILLS
+public static void scoreLanguageSkills(ArrayList<Applicant> currentApplicant) {
+	int languageScore = 0;
 	
+	if (applicant.speak1 >= 9) {
+		languageScore += 6;
+	}
+}
+
+//🌼 SCORE_EDUCATION
+	public static void scoreEducation (ArrayList<Applicant> currenApplicant) {
+			int points = 0;
+			ArrayList<Applicant> objectApplicantList = new ArrayList<>();
+			if (education == "Seondary School") {
+				points += 5;	
+			} else if (education == "One-year degree, diploma or certificate") {
+				points +=15;
+			} else if (education == "Two-year degree, diploma or certificate") {
+				points += 19;
+			} else if (education == "Bachelor's degree or other programs (three or more years)") {
+				points += 21;
+			} else if (education == "Two or more certificates, diplomas, or degrees") {
+				points +=22;
+			} else if (education == "Professional degree needed to practice in a licensed profession") {
+				points += 23;
+			} else if (education == "University degree at the Master's level") {
+				points += 23;
+			} else if (education == "University degree at the Doctoral (PhD) level") {
+				points += 25;
+			}
+			System.out.print(applicant);
+			}
+//🌼 SCORE_AGE
+		public static void scoreAge(ArrayList<Applicant> currenApplicant) {
+			System.out.print("Enter your first name: ");
+			int points = 0;
+			points ++;
+			if (applicant <18) {
+				points += 0;	
+			} else if (applicant >= 18 && age <= 35) {
+				points +=12;
+			} else if (applicant == 36) {
+				points += 11;
+			} else if (applicant == 37) {
+				points += 10;
+			} else if (applicant == 38) {
+				points += 9;
+			} else if (applicant == 39) {
+				points += 8;
+			} else if (applicant == 40) {
+				points += 7;
+			} else if (applicant == 41) {
+				points += 6;
+			} else if (applicant == 42) {
+				points += 5;
+			} else if (applicant == 43) {
+				points += 4;
+			} else if (applicant == 44) {
+				points += 3;
+			} else if (applicant == 45) {
+				points += 2;
+			} else if (applicant == 46) {
+				points += 1;
+			} else if (applicant == 47) {
+				points += 0;
+			}
+			System.out.print("Age     "Points\n");
+		}
+//🌼 SCORE_EMPLOYMENT
+	public void scoreEmployment(ArrayList <applicant> applicantList) {
+	//print("\nemployment")
+			for (int i = 0;applicantList; i++);
+		        applicant = applicantList.get(i);
+		        if (applicant.get(i)== True) {
+		        	 applicant.score += 10;
+		        	 System.out.printf(applicant);
+			        }
+		}
+
+//🌼 SCORE_ADAPTABILITY
+	 public void scoreAdaptability(ArrayList <applicant> applicantList) {
+	    // there are a number of factors here, however the maximum score that this
+	    // place can carry is 10 points, so this is prime place for mistakes to take place
+	   
+	    // print("\n adaptability")
+	    for (int i = 0; applicantList(); i++) {
+	        applicant = applicantList.get(i);
+	        int adaptabiliytScore = 0;
+	        if (applicant.adaptability_spouse_language == True) {
+	        	adaptabiliytScore += 5;
+	           
+	        } else if ( applicant.adaptabilitySpouseEducation == True) {
+	        	 adaptabiliytScore += 5;
+	       
+	        } else if (applicant.adaptabilitySpouseWork == True) {
+	            adaptabiliytScore += 5;
+	       
+	        } else if (applicant.adaptabilityYouEducation == True) {
+	            adaptabiliytScore += 5;
+	        } else if (applicant.adaptabilityYouWork == True) {
+	            adaptabiliytScore += 10;
+	        } else if ( applicant.adaptabilityYouEmployment == True) {
+	            adaptabiliytScore += 5;
+	        } else if (applicant.adaptabilityRelatives == True) {
+	            adaptabiliytScore += 5;
+	        } else if (adaptabiliytScore >= 10) {
+	            applicant.Score += 10;
+	       
+	        } else {
+	         applicant.score += adaptabiliytScore;
+	         System.out.printf(applicant);
+	        }
+	    }
+//🌼 CONVERT_LIST_TO_LIST_OF_APPLICANTS
+	    
+//🌼 SCORE_WORK_EXPERIENCE
+		
+	public static void scoreWorkExpirience (ArrayList<Applicant> currenApplicant) {
+		for (int i = 0; workExpirience(); i++) {
+		applicant = applicant.get(i);
+			
+		if (applicant.get(i)== 1) {
+			applicant.score =+9;
+		} else if (applicant.get(i) ==2 || applicant.workexpirience() ==3) {
+			applicant.score =+11;
+		} else if (applicant.get(i) ==4 || applicant.workexpirience() ==5) {
+			applicant.score =+13;
+		} else if (applicant.get(i) >5) {                                                                                                                      				} else if (applicant.get(i) ==2 || applicant.workexpirience() ==3) {
+			applicant.score =+13;
+		}
+			
 //🌼 READ_FILE
 	// Source: https://www.w3schools.com/java/java_arraylist.asp
 	// Source: https://www.w3schools.com/java/java_files_read.asp
@@ -129,7 +249,4 @@ public class assign0 {
 			}
 		return applicants;
 	}
-}
-
-
-		
+		}
